@@ -1,13 +1,16 @@
 package animals;
 
-public class Kotik {
+import food.Food;
+import food.Grass;
+import food.Meat;
+
+public class Kotik extends Carnivorous implements Voice,Run,Swim{
 
     private static int count;
     private static final int METHODS = 5;
 
     private String name;
     private String voice;
-    private int satiety;
     private int weight;
 
     public Kotik(String name, String voice, int satiety, int weight) {
@@ -30,20 +33,8 @@ public class Kotik {
         this.name = name;
     }
 
-    public String getVoice() {
-        return voice;
-    }
-
     public void setVoice(String voice) {
         this.voice = voice;
-    }
-
-    public int getSatiety() {
-        return satiety;
-    }
-
-    public void setSatiety(int satiety) {
-        this.satiety = satiety;
     }
 
     public int getWeight() {
@@ -189,6 +180,20 @@ public class Kotik {
         }
 
         return strings;
+    }
+    @Override
+    public void run() {
+        System.out.println("Kotik runs!");
+    }
+    @Override
+    public String getVoice(){
+        return "Mew-Mew";
+
+    }
+
+    @Override
+    public void swim() {
+        System.out.println("lift the cat out of the water!!!");
     }
 }
 
