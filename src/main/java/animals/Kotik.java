@@ -49,6 +49,7 @@ public class Kotik extends Carnivorous implements Voice,Run,Swim{
         return count;
     }
 
+
     public boolean play() {
         if (satiety > 0) {
             System.out.println("plays");

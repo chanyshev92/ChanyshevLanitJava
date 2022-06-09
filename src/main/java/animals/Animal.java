@@ -8,5 +8,10 @@ public abstract class Animal{
     public int getSatiety() {
         return satiety;
     }
+
+    public void setSatiety(int satiety) {
+        this.satiety = satiety;
+    }
+
     public abstract void eat(Food food);
 }
