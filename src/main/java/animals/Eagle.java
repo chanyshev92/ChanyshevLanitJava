@@ -1,6 +1,17 @@
 package animals;
 
+import model.Size;
+
 public class Eagle extends Carnivorous implements Voice,Run,Fly{
+    public Eagle(String name) {
+        super(name);
+    }
+
+    @Override
+    public Size getSize() {
+        return Size.SMALL;
+    }
+
     @Override
     public void fly() {
         System.out.println("Eagle flies");

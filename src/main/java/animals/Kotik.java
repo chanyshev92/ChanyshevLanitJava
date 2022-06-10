@@ -3,6 +3,7 @@ package animals;
 import food.Food;
 import food.Grass;
 import food.Meat;
+import model.Size;
 
 public class Kotik extends Carnivorous implements Voice,Run,Swim{
 
@@ -13,8 +14,12 @@ public class Kotik extends Carnivorous implements Voice,Run,Swim{
     private String voice;
     private int weight;
 
+    public Kotik(String name) {
+        super(name);
+    }
+
     public Kotik(String name, String voice, int satiety, int weight) {
-        this.name = name;
+        super(name);
         this.voice = voice;
         this.satiety = satiety;
         this.weight = weight;
@@ -22,6 +27,7 @@ public class Kotik extends Carnivorous implements Voice,Run,Swim{
     }
 
     public Kotik() {
+        super("Kotik");
         count++;
     }
 
@@ -31,6 +37,11 @@ public class Kotik extends Carnivorous implements Voice,Run,Swim{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public Size getSize() {
+        return Size.SMALL;
     }
 
     public void setVoice(String voice) {
