@@ -26,9 +26,8 @@ public class PositiveCalculatorTest {
     @Test(dataProvider="positiveData")
     public void positiveTest(String operator,String arg1, String arg2, double result){
         try {
-            //Assert.assertEquals(String.valueOf(result), Calculator.execute(new String[]{operator,arg1,arg2}),"not equals");
+
             Assert.assertEquals(Calculator.execute(new String[]{operator, arg1, arg2}),String.format("%.3f", result));
-            //Assert.assertEquals(Calculator.execute(new String[]{operator,arg1,arg2}),String.valueOf(result));
 
         }catch (CalculatorException e){
             e.printStackTrace();

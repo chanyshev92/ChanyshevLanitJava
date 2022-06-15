@@ -17,10 +17,10 @@ public class Calculator {
         try {
             value1 = Double.parseDouble(params[1]);
             value2 = Double.parseDouble(params[2]);
-            if (value1 >= Integer.MAX_VALUE
-                    || value1 <= Integer.MIN_VALUE
-                    || value2 >= Integer.MAX_VALUE
-                    || value2 <= Integer.MIN_VALUE) {
+            if (value1 > Integer.MAX_VALUE
+                    || value1 < Integer.MIN_VALUE
+                    || value2 > Integer.MAX_VALUE
+                    || value2 < Integer.MIN_VALUE) {
                 throw new CalculatorException("Превышен порог значений");
             }
 
