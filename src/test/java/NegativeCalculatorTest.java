@@ -11,13 +11,13 @@ public class NegativeCalculatorTest {
         return new Object[][]{
                 {"plus", "1", "2"},
                 {"-", null, "1"},
-                {null, "5", "five"},
                 {"/", "12", "0"},
-                {"*","",""},
+                {"*","","five"},
                 {"","",""},
                 {" "," "," "},
-                {"+",String.valueOf(Integer.MAX_VALUE-123),"123"},
-                {"-",String.valueOf(Integer.MAX_VALUE),"123"},
+                {"+",String.valueOf(Integer.MAX_VALUE-122),"123"},
+                {"+",String.valueOf(Integer.MAX_VALUE),"123"},
+                {"+",String.valueOf(Integer.MAX_VALUE+1),"123"},
                 {"-",String.valueOf(Integer.MIN_VALUE+123),"123"}
         };
     }
