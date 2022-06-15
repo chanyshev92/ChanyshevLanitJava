@@ -16,7 +16,8 @@ public class NegativeCalculatorTest {
                 {"+","",""},
                 {"","",""},
                 {"+",Integer.toString(Integer.MAX_VALUE),"123"},
-                {"-",Integer.toString(Integer.MIN_VALUE),"123"}
+                {"-",Integer.toString(Integer.MIN_VALUE),"123"},
+                {"-",Integer.toString(Integer.MIN_VALUE+123),"123"}
         };
     }
 
