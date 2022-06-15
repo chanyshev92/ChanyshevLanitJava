@@ -9,7 +9,11 @@ public class Main {
     }
 
     private static String[] readParams() {
-        // todo: считать из консоли данные, затем вернуть их в виде массива строк
-        return null;
+
+        Scanner in = new Scanner(System.in);
+        String operator = in.nextLine();
+        String arg1 = in.nextLine();
+        String arg2 = in.nextLine();
+        return new String[]{operator, arg1, arg2};
     }
 }

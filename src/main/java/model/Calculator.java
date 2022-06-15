@@ -6,9 +6,19 @@ public class Calculator {
         String operator = params[0];
         double value1;
         double value2;
-        // todo: доработать код, чтобы все негативные тесты проходили успешно
-        value1 = Double.parseDouble(params[1]);
-        value2 = Double.parseDouble(params[2]);
+
+        if (params[1]==null||params[2]==null){
+          throw new CalculatorException("One of arguments is null!");
+        }
+
+        try {
+            value1 = Double.parseDouble(params[1]);
+            value2 = Double.parseDouble(params[2]);
+
+        }catch (NumberFormatException e)
+        {
+            throw new CalculatorException(e);
+        }
         double result = calculate(operator, value1, value2);
         if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) {
             throw new CalculatorException("Превышен порог значений");
