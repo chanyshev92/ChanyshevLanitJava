@@ -13,8 +13,9 @@ public class PositiveCalculatorTest {
                 {"-","1","1",0},
                 {"*","5","5",25},
                 {"/","12","2",6},
-                {"-",Integer.toString(Integer.MAX_VALUE),"123",Integer.MAX_VALUE-123},
-                {"+",Integer.toString(Integer.MIN_VALUE),"123",Integer.MIN_VALUE+123},
+                {"-",String.valueOf(Integer.MAX_VALUE-1),"123",Integer.MAX_VALUE-124},
+                {"+",String.valueOf(Integer.MAX_VALUE-124),"123",Integer.MAX_VALUE-1},
+                {"+",String.valueOf(Integer.MIN_VALUE+1),"123",Integer.MIN_VALUE+124},
                 {"+","0.2","0.3",0.5},
                 {"/","1.25","5",0.25},
                 {"-", "2.0","1.1",0.8999999999999999}
@@ -24,8 +25,7 @@ public class PositiveCalculatorTest {
     @Test(dataProvider="positiveData")
     public void positiveTest(String operator,String arg1, String arg2, double result){
         try {
-            Double resultWrap=(Double)result;
-            Assert.assertEquals(resultWrap.toString(), Calculator.execute(new String[]{operator,arg1,arg2}),"not equals");
+            Assert.assertEquals(String.valueOf(result), Calculator.execute(new String[]{operator,arg1,arg2}),"not equals");
 
         }catch (CalculatorException e){
             e.printStackTrace();

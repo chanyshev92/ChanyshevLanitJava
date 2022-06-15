@@ -31,7 +31,7 @@ public class Calculator {
         if (result >= Integer.MAX_VALUE || result <= Integer.MIN_VALUE) {
             throw new CalculatorException("Превышен порог значений");
         }
-        return Double.toString(result);
+        return String.valueOf(result);
     }
 
     private static double calculate(String operator, double a, double b) {
