@@ -17,6 +17,7 @@ public class NegativeCalculatorTest {
                 {" "," "," "},
                 {"+",String.valueOf(Integer.MAX_VALUE-122),"123"},
                 {"+","2147483648","123"},
+                {"+","-2147483649","123"},
                 {"-",String.valueOf(Integer.MIN_VALUE+122),"123"}
         };
     }
