@@ -1,5 +1,8 @@
 package model;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 public class Calculator {
 
     public static String execute(String[] params) {
@@ -7,7 +10,7 @@ public class Calculator {
         double value1;
         double value2;
 
-        if (params[1]==null||params[2]==null){
+        if (Arrays.stream(params).anyMatch(Objects::isNull)){
           throw new CalculatorException("One of arguments is null!");
         }
 

@@ -12,7 +12,12 @@ public class PositiveCalculatorTest {
                 {"+","1","2",3},
                 {"-","1","1",0},
                 {"*","5","5",25},
-                {"/","12","2",6}
+                {"/","12","2",6},
+                {"-",Integer.toString(Integer.MAX_VALUE),"123",Integer.MAX_VALUE-123},
+                {"+",Integer.toString(Integer.MIN_VALUE),"123",Integer.MIN_VALUE+123},
+                {"+","0.2","0.3",0.5},
+                {"/","1.25","5",0.25},
+                {"-", "2.0","1.1",0.8999999999999999}
         };
     }
 
