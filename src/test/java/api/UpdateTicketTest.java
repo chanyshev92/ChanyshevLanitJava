@@ -29,6 +29,6 @@ public class UpdateTicketTest extends BaseTest {
                 .when()
                 .put("/api/tickets/"+ticket.getId())
                 .then()
-                .statusCode(200);
+                .statusCode(422);
     }
 }
