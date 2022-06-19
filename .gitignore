@@ -1,13 +1,13 @@
 /.idea/
 /out/
 /target/
+/allure-results/
 *.iml
 
 .allure
 .gradle
 schema
 build
-/*/allure-results/
 out
 .gradletasknamecache
 
