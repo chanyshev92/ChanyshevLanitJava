@@ -56,7 +56,7 @@ public class HelpdeskUITest {
 
         ViewPage viewTicketWithoutLogInPage = new ViewPage();
         viewTicketWithoutLogInPage.saveId(ticket);
-        viewTicketWithoutLogInPage.checkTicket(ticket);
+        viewTicketWithoutLogInPage = viewTicketWithoutLogInPage.checkTicket(ticket);
 
         mainPage.mainMenu().clickOnLogInButton();
 
