@@ -13,6 +13,8 @@ import java.util.List;
 /** Страница создания тикета */
 public class CreateTicketPage extends HelpdeskBasePage {
 
+    private Integer id;
+
     @FindBy(xpath = "//select[@name='queue']")
     private WebElement selectQueue;
 
@@ -52,6 +54,7 @@ public class CreateTicketPage extends HelpdeskBasePage {
         setPriorityProblem(ticket.getPriority());
         setDueOnProblem(ticket.getDue_date());
         setSubmitterEmail(ticket.getSubmitter_email());
+        setId(ticket.getId());
         clickOnSubmitButton();
     }
     @Step("Ввести очередь проблемы: {queue}")
@@ -168,5 +171,13 @@ public class CreateTicketPage extends HelpdeskBasePage {
 
     public void setSubmitTicketButton(WebElement submitTicketButton) {
         this.submitTicketButton = submitTicketButton;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getId() {
+        return id;
     }
 }
