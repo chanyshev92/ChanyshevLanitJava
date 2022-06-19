@@ -1,4 +1,26 @@
-# Project exclude paths
-/target/
 /.idea/
+/out/
+/target/
 *.iml
+
+.allure
+.gradle
+schema
+build
+/*/allure-results/
+out
+.gradletasknamecache
+
+# Default ignored files
+/shelf/
+/workspace.xml
+
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
