@@ -17,20 +17,20 @@ public class ViewPage extends HelpdeskBasePage {
 
     /* Инициализация сразу при объявлении элемента.
        Элемент должен присутствовать на странице браузера в момент создания объекта страницы new ViewPage() */
-    private WebElement queue = driver.findElement(By.xpath("//th[contains(text(), 'Queue:')]"));
-    private WebElement email = driver.findElement(By.xpath("//th[text()='Submitter E-Mail']/following-sibling::td[1]"));
-    private WebElement priority = driver.findElement(By.xpath("//th[text()='Priority']/following-sibling::td[1]"));
+    private final WebElement queue = driver.findElement(By.xpath("//th[contains(text(), 'Queue:')]"));
+    private final WebElement email = driver.findElement(By.xpath("//th[text()='Submitter E-Mail']/following-sibling::td[1]"));
+    private final WebElement priority = driver.findElement(By.xpath("//th[text()='Priority']/following-sibling::td[1]"));
 
     // Пример поиска description, используя промежуточный элемент descriptionLabel
-    private WebElement descriptionLabel = driver.findElement(By.xpath("//th[text()='Description']"));
+    private final WebElement descriptionLabel = driver.findElement(By.xpath("//th[text()='Description']"));
     // Поиск элемента можно выполнять не только относительно driver, но и относительно другого элемента
-    private WebElement description = descriptionLabel.findElement(By.xpath("./parent::*/following-sibling::tr[1]"));
+    private final WebElement description = descriptionLabel.findElement(By.xpath("./parent::*/following-sibling::tr[1]"));
 
     /* Поиск элемента по локатору.
        Используется для элементов, которых нет на странице браузера в момент создания объекта страницы,
        так как локатор может быть объявлен и проинициализирован до появления элемнета на странице. */
-    private By captionLocator = By.xpath("//table/caption");
-    private WebElement caption;
+    private final By captionLocator = By.xpath("//table/caption");
+    private final WebElement caption;
 
 
     public ViewPage() {

@@ -17,18 +17,18 @@ public class TicketPage extends HelpdeskBasePage {
        а ошибку можно будет легко локализовать и исправить.
        В случае изменений ячеек таблицы, локатор будет продолжать работать, но будет указывать на другой элемент,
        поведение теста при этом изменится непредсказуемым образом и ошибку будет сложно найти. */
-    private WebElement dueDate = driver.findElement(By.xpath("//th[text()='Due Date']/following-sibling::td[1]"));
+    private final WebElement dueDate = driver.findElement(By.xpath("//th[text()='Due Date']/following-sibling::td[1]"));
 
-    private WebElement title=driver.findElement(By.xpath("//h3"));
+    private final WebElement title=driver.findElement(By.xpath("//h3"));
 
     //@FindBy(xpath = "//th[contains(text(), 'Queue:')]")//h3/following-sibling::text()")
-    private WebElement queue=driver.findElement(By.xpath("//th[contains(text(), 'Queue:')]"));
+    private final WebElement queue=driver.findElement(By.xpath("//th[contains(text(), 'Queue:')]"));
 
-    private WebElement email = driver.findElement(By.xpath("//th[text()='Submitter E-Mail']/following-sibling::td[1]"));
+    private final WebElement email = driver.findElement(By.xpath("//th[text()='Submitter E-Mail']/following-sibling::td[1]"));
 
-    private WebElement priority = driver.findElement(By.xpath("//th[text()='Priority']/following-sibling::td[1]"));
+    private final WebElement priority = driver.findElement(By.xpath("//th[text()='Priority']/following-sibling::td[1]"));
 
-    private WebElement description = driver.findElement(By.xpath("//*[@id='ticket-description']/p"));
+    private final WebElement description = driver.findElement(By.xpath("//*[@id='ticket-description']/p"));
 
     public TicketPage() {
         //PageFactory.initElements(driver,this);
@@ -56,10 +56,6 @@ public class TicketPage extends HelpdeskBasePage {
 
     public WebElement getDescription() {
         return description;
-    }
-
-    public void setDescription(WebElement description) {
-        this.description = description;
     }
 
     @Step("Проверить значение полей на странице тикета")
