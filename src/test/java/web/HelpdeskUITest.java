@@ -52,7 +52,7 @@ public class HelpdeskUITest {
         ticket = buildNewTicket();
         // ...
         CreateTicketPage createTicketPage=new CreateTicketPage();
-        createTicketPage=createTicketPage.createTicket(ticket);
+        createTicketPage.createTicket(ticket);
 
         ViewPage viewTicketWithoutLogInPage = new ViewPage();
         viewTicketWithoutLogInPage.saveId(ticket);
