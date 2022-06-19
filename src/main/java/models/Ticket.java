@@ -11,7 +11,7 @@ public class Ticket {
        Класс должен содержать набор полей, необходимый для заполнения формы создания тикета.
        Тип данных для каждого поля должен соответствовать документации swagger (см. раздел Models в документации). */
 
-    private Integer id;
+    private Integer id=0;
     private String title;
     private String due_date;
     private File file;

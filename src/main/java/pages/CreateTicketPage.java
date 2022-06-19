@@ -98,4 +98,76 @@ public class CreateTicketPage extends HelpdeskBasePage {
     public void clickOnSubmitButton() {
         submitTicketButton.click();
     }
+
+    public WebElement getSelectQueue() {
+        return selectQueue;
+    }
+
+    public void setSelectQueue(WebElement selectQueue) {
+        this.selectQueue = selectQueue;
+    }
+
+    public WebElement getInputProblem() {
+        return inputProblem;
+    }
+
+    public void setInputProblem(WebElement inputProblem) {
+        this.inputProblem = inputProblem;
+    }
+
+    public WebElement getDescription() {
+        return description;
+    }
+
+    public void setDescription(WebElement description) {
+        this.description = description;
+    }
+
+    public WebElement getPriority() {
+        return priority;
+    }
+
+    public void setPriority(WebElement priority) {
+        this.priority = priority;
+    }
+
+    public WebElement getDue_date() {
+        return due_date;
+    }
+
+    public void setDue_date(WebElement due_date) {
+        this.due_date = due_date;
+    }
+
+    public WebElement getAttachmentFile() {
+        return attachmentFile;
+    }
+
+    public void setAttachmentFile(WebElement attachmentFile) {
+        this.attachmentFile = attachmentFile;
+    }
+
+    public WebElement getSubmitterEmail() {
+        return submitterEmail;
+    }
+
+    public void setSubmitterEmail(WebElement submitterEmail) {
+        this.submitterEmail = submitterEmail;
+    }
+
+    public WebElement getAssigned_to() {
+        return assigned_to;
+    }
+
+    public void setAssigned_to(WebElement assigned_to) {
+        this.assigned_to = assigned_to;
+    }
+
+    public WebElement getSubmitTicketButton() {
+        return submitTicketButton;
+    }
+
+    public void setSubmitTicketButton(WebElement submitTicketButton) {
+        this.submitTicketButton = submitTicketButton;
+    }
 }
