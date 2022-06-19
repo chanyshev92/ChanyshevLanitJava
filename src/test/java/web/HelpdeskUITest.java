@@ -67,7 +67,7 @@ public class HelpdeskUITest {
         TicketsPage ticketListPage = new TicketsPage();
         ticketListPage.openTicket(this.ticket);
         TicketPage viewTicketWithLogInPage = new TicketPage();
-        viewTicketWithLogInPage.checkTicket(ticket);
+        viewTicketWithLogInPage=viewTicketWithLogInPage.checkTicket(ticket);
 
     }
 
