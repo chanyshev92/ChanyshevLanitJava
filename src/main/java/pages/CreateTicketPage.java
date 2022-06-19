@@ -45,7 +45,7 @@ public class CreateTicketPage extends HelpdeskBasePage {
     }
 
     @Step("Создать тикет")
-    public CreateTicketPage createTicket(Ticket ticket) {
+    public void createTicket(Ticket ticket) {
         setQueueProblem(ticket.getQueue());
         setInputProblem(ticket.getTitle());
         setDescriptionProblem(ticket.getDescription());
@@ -53,7 +53,6 @@ public class CreateTicketPage extends HelpdeskBasePage {
         setDueOnProblem(ticket.getDue_date());
         setSubmitterEmail(ticket.getSubmitter_email());
         clickOnSubmitButton();
-        return this;
     }
     @Step("Ввести очередь проблемы: {queue}")
     private void setQueueProblem(Integer queue) {
