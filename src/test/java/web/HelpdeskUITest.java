@@ -51,7 +51,7 @@ public class HelpdeskUITest {
         // ...
         ticket = buildNewTicket();
         // ...
-        CreateTicketPage createTicketPage=new CreateTicketPage(driver);
+        CreateTicketPage createTicketPage=new CreateTicketPage();
         CreateTicketPage ticket1 = createTicketPage.createTicket(ticket);
 
         ViewPage viewTicketWithoutLogInPage = new ViewPage();
@@ -68,6 +68,7 @@ public class HelpdeskUITest {
         ticketListPage.openTicket(this.ticket);
         TicketPage viewTicketWithLogInPage = new TicketPage();
         viewTicketWithLogInPage.checkTicket(this.ticket);
+        viewTicketWithLogInPage.deleteTicket();
 
     }
 

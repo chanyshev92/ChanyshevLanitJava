@@ -38,8 +38,7 @@ public class CreateTicketPage extends HelpdeskBasePage {
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement submitTicketButton;
 
-    public CreateTicketPage(WebDriver driver){
-        AbstractPage.driver=driver;
+    public CreateTicketPage(){
         PageFactory.initElements(driver,this);
     }
 

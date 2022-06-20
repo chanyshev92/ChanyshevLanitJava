@@ -34,6 +34,10 @@ public class TicketPage extends HelpdeskBasePage {
 
     private final WebElement description = driver.findElement(By.xpath("//*[@id='ticket-description']/p"));
 
+    private final WebElement deleteButton = driver.findElement(By.xpath("//button[contains(text(),'Delete')]"));
+
+    //private final WebElement agreeDeleteButton = driver.findElement(By.xpath("//button[contains(text(), 'Yes I Understand - Delete It Anyway')]"));
+
     public TicketPage() {
         //PageFactory.initElements(driver,this);
     }
@@ -81,5 +85,11 @@ public class TicketPage extends HelpdeskBasePage {
         Assert.assertTrue(getDescription().getText().contains(ticket.getDescription()), "Описание не соответствует");
         Assert.assertTrue(getDueDate().getText().contains(ticket.getDue_date()),"Дата не соответствует");
 
+    }
+
+    public TicketsPage deleteTicket(){
+        deleteButton.click();
+        driver.findElement(By.xpath("//button[contains(text(), 'Yes I Understand - Delete It Anyway')]")).click();
+        return new TicketsPage();
     }
 }
