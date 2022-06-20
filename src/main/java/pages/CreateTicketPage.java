@@ -15,6 +15,8 @@ public class CreateTicketPage extends HelpdeskBasePage {
 
     private Integer id;
 
+    private Integer status;
+
     @FindBy(xpath = "//select[@name='queue']")
     private WebElement selectQueue;
 
@@ -36,11 +38,11 @@ public class CreateTicketPage extends HelpdeskBasePage {
     @FindBy(xpath = "//*[@id='id_submitter_email']")
     private WebElement submitterEmail;
 
-    @FindBy(xpath = "//*[@id='id_assigned_to']")
-    private WebElement assigned_to;
-
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement submitTicketButton;
+
+    //@FindBy(xpath = "//*[@id='id_assigned_to']")
+    private String assigned_to;
 
     public CreateTicketPage() {
         PageFactory.initElements(driver,this);
@@ -54,6 +56,8 @@ public class CreateTicketPage extends HelpdeskBasePage {
         setPriorityProblem(ticket.getPriority());
         setDueOnProblem(ticket.getDue_date());
         setSubmitterEmail(ticket.getSubmitter_email());
+        setAssigned_to(ticket.getAssigned_to());
+        setStatus(ticket.getStatus());
         setId(ticket.getId());
         clickOnSubmitButton();
     }
@@ -157,11 +161,19 @@ public class CreateTicketPage extends HelpdeskBasePage {
         this.submitterEmail = submitterEmail;
     }
 
-    public WebElement getAssigned_to() {
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getAssigned_to() {
         return assigned_to;
     }
 
-    public void setAssigned_to(WebElement assigned_to) {
+    public void setAssigned_to(String assigned_to) {
         this.assigned_to = assigned_to;
     }
 
