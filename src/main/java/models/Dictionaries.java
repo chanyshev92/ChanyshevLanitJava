@@ -20,9 +20,9 @@ public class Dictionaries {
         queues.put(2, "Some Product");
 
         statuses.put(1, "Open");
-        statuses.put(2, "Resolved");
-        statuses.put(3, "Closed");
-        statuses.put(4, "Duplicate");
+        statuses.put(3, "Resolved");
+        statuses.put(4, "Closed");
+        statuses.put(5, "Duplicate");
     }
 
     public static String getPriority(int priority) {

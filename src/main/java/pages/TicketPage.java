@@ -71,7 +71,7 @@ public class TicketPage extends HelpdeskBasePage {
     }
 
     @Step("Проверить значение полей на странице тикета")
-    public TicketPage checkTicket(Ticket ticket) {
+    public void checkTicket(Ticket ticket) {
         Assert.assertTrue(getStatus().getText().contains(Dictionaries.getStatus(ticket.getStatus())),"Статус тикета не соответствует");
         Assert.assertTrue(getAssigned_to().getText().contains(ticket.getAssigned_to()),"Ассоциированность не соответствует");
         Assert.assertTrue(getTitle().getText().contains(ticket.getTitle()), "Имя тикета не соответствует");
@@ -80,6 +80,6 @@ public class TicketPage extends HelpdeskBasePage {
         Assert.assertTrue(getEmail().getText().contains(ticket.getSubmitter_email()), "Email отправителя не соответствует");
         Assert.assertTrue(getDescription().getText().contains(ticket.getDescription()), "Описание не соответствует");
         Assert.assertTrue(getDueDate().getText().contains(ticket.getDue_date()),"Дата не соответствует");
-        return this;
+
     }
 }

@@ -3,6 +3,7 @@ package pages;
 import io.qameta.allure.Step;
 import models.Ticket;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -13,14 +14,10 @@ import java.util.List;
 /** Страница создания тикета */
 public class CreateTicketPage extends HelpdeskBasePage {
 
-    private Integer id;
-
-    private Integer status;
-
-    @FindBy(xpath = "//select[@name='queue']")
+    @FindBy(xpath = "//*[@id='id_queue']")
     private WebElement selectQueue;
 
-    @FindBy(xpath = "//*[@name='title']")
+    @FindBy(xpath = "//*[@id='id_title']")
     private WebElement inputProblem;
 
     @FindBy(xpath = "//*[@id='id_body']")
@@ -41,25 +38,21 @@ public class CreateTicketPage extends HelpdeskBasePage {
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement submitTicketButton;
 
-    //@FindBy(xpath = "//*[@id='id_assigned_to']")
-    private String assigned_to;
-
-    public CreateTicketPage() {
+    public CreateTicketPage(WebDriver driver){
+        AbstractPage.driver=driver;
         PageFactory.initElements(driver,this);
     }
 
     @Step("Создать тикет")
-    public void createTicket(Ticket ticket) {
+    public CreateTicketPage createTicket(Ticket ticket) {
         setQueueProblem(ticket.getQueue());
         setInputProblem(ticket.getTitle());
         setDescriptionProblem(ticket.getDescription());
         setPriorityProblem(ticket.getPriority());
         setDueOnProblem(ticket.getDue_date());
         setSubmitterEmail(ticket.getSubmitter_email());
-        setAssigned_to(ticket.getAssigned_to());
-        setStatus(ticket.getStatus());
-        setId(ticket.getId());
         clickOnSubmitButton();
+        return this;
     }
     @Step("Ввести очередь проблемы: {queue}")
     private void setQueueProblem(Integer queue) {
@@ -81,12 +74,10 @@ public class CreateTicketPage extends HelpdeskBasePage {
     private void setDueOnProblem(String due_date) {
 
         this.due_date.click();
-        String[] strings =due_date.split("-");
         List<WebElement> dateList =
                 driver.findElements(By.xpath("//div[@id='ui-datepicker-div']/table/tbody/tr/td/a"));
 
-
-        dateList.stream().filter(a -> a.getText().equals(due_date)).findFirst().get().click();
+        dateList.stream().filter(a -> a.getText().equals(due_date)).findFirst().orElseThrow(()-> new AssertionError("нельзя выбрать дату") ).click();
 
     }
 
@@ -103,93 +94,5 @@ public class CreateTicketPage extends HelpdeskBasePage {
     @Step("Нажать на кнопку создания тикета")
     public void clickOnSubmitButton() {
         submitTicketButton.click();
-    }
-
-    public WebElement getSelectQueue() {
-        return selectQueue;
-    }
-
-    public void setSelectQueue(WebElement selectQueue) {
-        this.selectQueue = selectQueue;
-    }
-
-    public WebElement getInputProblem() {
-        return inputProblem;
-    }
-
-    public void setInputProblem(WebElement inputProblem) {
-        this.inputProblem = inputProblem;
-    }
-
-    public WebElement getDescription() {
-        return description;
-    }
-
-    public void setDescription(WebElement description) {
-        this.description = description;
-    }
-
-    public WebElement getPriority() {
-        return priority;
-    }
-
-    public void setPriority(WebElement priority) {
-        this.priority = priority;
-    }
-
-    public WebElement getDue_date() {
-        return due_date;
-    }
-
-    public void setDue_date(WebElement due_date) {
-        this.due_date = due_date;
-    }
-
-    public WebElement getAttachmentFile() {
-        return attachmentFile;
-    }
-
-    public void setAttachmentFile(WebElement attachmentFile) {
-        this.attachmentFile = attachmentFile;
-    }
-
-    public WebElement getSubmitterEmail() {
-        return submitterEmail;
-    }
-
-    public void setSubmitterEmail(WebElement submitterEmail) {
-        this.submitterEmail = submitterEmail;
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public String getAssigned_to() {
-        return assigned_to;
-    }
-
-    public void setAssigned_to(String assigned_to) {
-        this.assigned_to = assigned_to;
-    }
-
-    public WebElement getSubmitTicketButton() {
-        return submitTicketButton;
-    }
-
-    public void setSubmitTicketButton(WebElement submitTicketButton) {
-        this.submitTicketButton = submitTicketButton;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getId() {
-        return id;
     }
 }
