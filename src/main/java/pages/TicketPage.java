@@ -19,6 +19,10 @@ public class TicketPage extends HelpdeskBasePage {
        поведение теста при этом изменится непредсказуемым образом и ошибку будет сложно найти. */
     private final WebElement dueDate = driver.findElement(By.xpath("//th[text()='Due Date']/following-sibling::td[1]"));
 
+    private final WebElement assigned_to =driver.findElement(By.xpath("//th[text()='Assigned To']/following-sibling::td[1]"));
+
+    private final WebElement status = driver.findElement(By.xpath("//h3"));
+
     private final WebElement title=driver.findElement(By.xpath("//h3"));
 
     //@FindBy(xpath = "//th[contains(text(), 'Queue:')]")//h3/following-sibling::text()")
@@ -32,6 +36,14 @@ public class TicketPage extends HelpdeskBasePage {
 
     public TicketPage() {
         //PageFactory.initElements(driver,this);
+    }
+
+    public WebElement getAssigned_to() {
+        return assigned_to;
+    }
+
+    public WebElement getStatus() {
+        return status;
     }
 
     public WebElement getDueDate() {
@@ -60,6 +72,8 @@ public class TicketPage extends HelpdeskBasePage {
 
     @Step("Проверить значение полей на странице тикета")
     public TicketPage checkTicket(Ticket ticket) {
+        Assert.assertTrue(getStatus().getText().contains(Dictionaries.getStatus(ticket.getStatus())),"Статус тикета не соответствует");
+        Assert.assertTrue(getAssigned_to().getText().contains(ticket.getAssigned_to()),"Ассоциированность не соответствует");
         Assert.assertTrue(getTitle().getText().contains(ticket.getTitle()), "Имя тикета не соответствует");
         Assert.assertTrue(getQueue().getText().contains(Dictionaries.getQueue(ticket.getQueue())), "Очередность не соответствует");
         Assert.assertTrue(getPriority().getText().contains(Dictionaries.getPriority(ticket.getPriority())), "Приоритет не соответствует");

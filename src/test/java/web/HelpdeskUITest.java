@@ -81,7 +81,7 @@ public class HelpdeskUITest {
         ticket.setSubmitter_email("chanyshev92@yandex.ru");
         ticket.setId(0);
         ticket.setStatus(1);
-        ticket.setAssigned_to("RustemChanyshev");
+        ticket.setAssigned_to("Unassigned");
         return ticket;
     }
 

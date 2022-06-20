@@ -85,4 +85,14 @@ public class ViewPage extends HelpdeskBasePage {
         String id = captionText.substring(captionText.indexOf("-") + 1, captionText.indexOf("]"));
         ticket.setId(Integer.parseInt(id));
     }
+
+    @Step("Сохранить status тикета в объект")
+    public void saveStatus(Ticket ticket){
+        ticket.setStatus(1);
+    }
+
+    @Step("Сохранить assigned_to тикета в объект")
+    public void saveAssignedTo(Ticket ticket){
+        ticket.setAssigned_to("Unassigned");
+    }
 }

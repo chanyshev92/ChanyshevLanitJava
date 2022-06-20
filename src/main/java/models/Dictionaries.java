@@ -7,6 +7,7 @@ public class Dictionaries {
 
     private static final HashMap<Integer, String> priorities = new HashMap<>();
     private static final HashMap<Integer, String> queues = new HashMap<>();
+    private static final HashMap<Integer, String> statuses = new HashMap<>();
 
     static {
         priorities.put(1, "1. Critical");
@@ -17,6 +18,11 @@ public class Dictionaries {
 
         queues.put(1, "Django Helpdesk");
         queues.put(2, "Some Product");
+
+        statuses.put(1, "Open");
+        statuses.put(2, "Resolved");
+        statuses.put(3, "Closed");
+        statuses.put(4, "Duplicate");
     }
 
     public static String getPriority(int priority) {
@@ -26,4 +32,6 @@ public class Dictionaries {
     public static String getQueue(int queue) {
         return queues.get(queue);
     }
+
+    public static String getStatus(int status){ return statuses.get(status); }
 }
