@@ -73,12 +73,12 @@ public class HelpdeskUITest {
 
     private Ticket buildNewTicket() {
         Ticket ticket = new Ticket();
-        ticket.setTitle("No DATA");
-        ticket.setDescription("No data about my Lanit interview))");
+        ticket.setTitle("NDA");
+        ticket.setDescription("))");
         ticket.setDue_date("25");
         ticket.setPriority(2);
         ticket.setQueue(1);
-        ticket.setSubmitter_email("chanyshev92@yandex.ru");
+        ticket.setSubmitter_email("123@rb.ru");
         ticket.setId(0);
         ticket.setStatus(1);
         ticket.setAssigned_to("Unassigned");
