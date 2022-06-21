@@ -52,11 +52,13 @@ public class HelpdeskUITest {
         ticket = buildNewTicket();
         // ...
         CreateTicketPage createTicketPage=new CreateTicketPage();
-        CreateTicketPage ticket1 = createTicketPage.createTicket(ticket);
+        createTicketPage.createTicket(ticket);
 
         ViewPage viewTicketWithoutLogInPage = new ViewPage();
         viewTicketWithoutLogInPage.saveId(ticket);
-        viewTicketWithoutLogInPage = viewTicketWithoutLogInPage.checkTicket(ticket);
+        //viewTicketWithoutLogInPage.saveAssignedTo(ticket);
+        //viewTicketWithoutLogInPage.saveStatus(ticket);
+        viewTicketWithoutLogInPage.checkTicket(ticket);
 
         mainPage.mainMenu().clickOnLogInButton();
 
