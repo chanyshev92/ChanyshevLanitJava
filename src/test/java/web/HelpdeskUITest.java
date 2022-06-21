@@ -52,12 +52,10 @@ public class HelpdeskUITest {
         ticket = buildNewTicket();
         // ...
         CreateTicketPage createTicketPage=new CreateTicketPage();
-        createTicketPage.createTicket(ticket);
+        createTicketPage=createTicketPage.createTicket(ticket);
 
         ViewPage viewTicketWithoutLogInPage = new ViewPage();
         viewTicketWithoutLogInPage.saveId(ticket);
-        //viewTicketWithoutLogInPage.saveAssignedTo(ticket);
-        //viewTicketWithoutLogInPage.saveStatus(ticket);
         viewTicketWithoutLogInPage.checkTicket(ticket);
 
         mainPage.mainMenu().clickOnLogInButton();
@@ -65,11 +63,11 @@ public class HelpdeskUITest {
         LoginPage loginPage = new LoginPage();
         loginPage.login(System.getProperty("user"),System.getProperty("password"));
 
-        mainPage.mainMenu().searchTicket(this.ticket);
+        mainPage.mainMenu().searchTicket(ticket);
         TicketsPage ticketListPage = new TicketsPage();
-        ticketListPage.openTicket(this.ticket);
+        ticketListPage.openTicket(ticket);
         TicketPage viewTicketWithLogInPage = new TicketPage();
-        viewTicketWithLogInPage.checkTicket(this.ticket);
+        viewTicketWithLogInPage.checkTicket(ticket);
         viewTicketWithLogInPage.deleteTicket();
 
     }
