@@ -1,0 +1,26 @@
+/.idea/
+/out/
+/target/
+/allure-results/
+*.iml
+
+.allure
+.gradle
+schema
+build
+out
+.gradletasknamecache
+
+# Default ignored files
+/shelf/
+/workspace.xml
+
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
