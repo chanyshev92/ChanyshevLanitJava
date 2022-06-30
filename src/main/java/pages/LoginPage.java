@@ -35,21 +35,25 @@ public class LoginPage extends HelpdeskBasePage {
         setUser(user);
         setPassword(password);
         clickOnLoginButton();
+        saveScreenshot(driver);
         return this;
     }
 
     @Step("Ввести логин {user}")
     private void setUser(String user) {
         this.user.sendKeys(user);
+        saveScreenshot(driver);
     }
 
     @Step("Ввести пароль")
     private void setPassword(String password) {
         this.password.sendKeys(password);
+        saveScreenshot(driver);
     }
 
     @Step("Нажать кнопку авторизации")
     private void clickOnLoginButton() {
         this.loginButton.click();
+        saveScreenshot(driver);
     }
 }

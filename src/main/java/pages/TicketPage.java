@@ -84,12 +84,14 @@ public class TicketPage extends HelpdeskBasePage {
         Assert.assertTrue(getEmail().getText().contains(ticket.getSubmitter_email()), "Email отправителя не соответствует");
         Assert.assertTrue(getDescription().getText().contains(ticket.getDescription()), "Описание не соответствует");
         Assert.assertTrue(getDueDate().getText().contains(ticket.getDue_date()),"Дата не соответствует");
+        saveScreenshot(driver);
 
     }
-
+    @Step("Удалить созданный тикет")
     public TicketsPage deleteTicket(){
         deleteButton.click();
         driver.findElement(By.xpath("//button[contains(text(), 'Yes I Understand - Delete It Anyway')]")).click();
+        saveScreenshot(driver);
         return new TicketsPage();
     }
 }
