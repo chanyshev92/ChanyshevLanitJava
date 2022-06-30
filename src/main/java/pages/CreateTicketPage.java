@@ -51,22 +51,26 @@ public class CreateTicketPage extends HelpdeskBasePage {
         setDueOnProblem(ticket.getDue_date());
         setSubmitterEmail(ticket.getSubmitter_email());
         clickOnSubmitButton();
+        saveScreenshot(driver);
         return this;
     }
     @Step("Ввести очередь проблемы: {queue}")
     private void setQueueProblem(Integer queue) {
         Select select =new Select(selectQueue);
         select.selectByValue(String.valueOf(queue));
+        saveScreenshot(driver);
     }
     @Step("Ввести приоритет проблемы: {description}")
     private void setDescriptionProblem(String description) {
 
         this.description.sendKeys(description);
+        saveScreenshot(driver);
     }
     @Step("Ввести приоритет проблемы: {priority}")
     private void setPriorityProblem(Integer priority) {
         Select select = new Select(this.priority);
         select.selectByValue(String.valueOf(priority));
+        saveScreenshot(driver);
     }
 
     @Step("Ввести дату решения проблемы: {due_date}")
@@ -77,6 +81,7 @@ public class CreateTicketPage extends HelpdeskBasePage {
                 driver.findElements(By.xpath("//div[@id='ui-datepicker-div']/table/tbody/tr/td/a"));
 
         dateList.stream().filter(a -> a.getText().equals(due_date)).findFirst().orElseThrow(()-> new AssertionError("нельзя выбрать дату") ).click();
+        saveScreenshot(driver);
 
     }
 
@@ -88,10 +93,12 @@ public class CreateTicketPage extends HelpdeskBasePage {
     @Step("Ввести имя проблемы: {text}")
     public void setInputProblem(String text) {
         inputProblem.sendKeys(text);
+        saveScreenshot(driver);
     }
 
     @Step("Нажать на кнопку создания тикета")
     public void clickOnSubmitButton() {
         submitTicketButton.click();
+        saveScreenshot(driver);
     }
 }

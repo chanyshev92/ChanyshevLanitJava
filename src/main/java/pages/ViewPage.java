@@ -46,23 +46,30 @@ public class ViewPage extends HelpdeskBasePage {
         Assert.assertTrue(getPriorityTitle().contains(Dictionaries.getPriority(ticket.getPriority())), "Приоритет не соответствует");
         Assert.assertTrue(getEmailTitle().contains(ticket.getSubmitter_email()), "Email отправителя не соответствует");
         Assert.assertTrue(getDescriptionTitle().contains(ticket.getDescription()), "Описание не соответствует");
+        saveScreenshot(driver);
         return this;
     }
     @Step("Получить очередность тикета")
     public String getQueueTitle() {
+        saveScreenshot(driver);
         return queue.getText();
     }
     @Step("Получить email отправителя тикета")
     public String getEmailTitle() {
+        saveScreenshot(driver);
         return email.getText();
     }
     @Step("Получить приоритет тикета")
     public String getPriorityTitle() {
+
+        saveScreenshot(driver);
         return priority.getText();
     }
 
     @Step("Получить описание тикета")
     public String getDescriptionTitle() {
+
+        saveScreenshot(driver);
         return description.getText();
     }
 
@@ -75,7 +82,7 @@ public class ViewPage extends HelpdeskBasePage {
 
         // поиск с ожиданием по условию
         WebElement ticketTitle = new WebDriverWait(driver, 5).until(condition);
-
+        saveScreenshot(driver);
         return ticketTitle.getText();
     }
 
@@ -84,15 +91,18 @@ public class ViewPage extends HelpdeskBasePage {
         String captionText = caption.getText();
         String id = captionText.substring(captionText.indexOf("-") + 1, captionText.indexOf("]"));
         ticket.setId(Integer.parseInt(id));
+        saveScreenshot(driver);
     }
 
     @Step("Сохранить status тикета в объект")
     public void saveStatus(Ticket ticket){
         ticket.setStatus(1);
+        saveScreenshot(driver);
     }
 
     @Step("Сохранить assigned_to тикета в объект")
     public void saveAssignedTo(Ticket ticket){
         ticket.setAssigned_to("Unassigned");
+        saveScreenshot(driver);
     }
 }
