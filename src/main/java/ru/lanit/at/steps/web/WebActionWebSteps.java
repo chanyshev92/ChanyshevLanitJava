@@ -10,17 +10,13 @@ import ru.lanit.at.actions.WebActions;
 import ru.lanit.at.utils.Sleep;
 import ru.lanit.at.utils.web.pagecontext.PageManager;
 
-import java.io.File;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
 import static ru.lanit.at.utils.VariableUtil.replaceVars;
 
 
 public class WebActionWebSteps extends AbstractWebSteps {
-
-
 
     public WebActionWebSteps(PageManager pageManager) {
         super(pageManager);
@@ -154,21 +150,5 @@ public class WebActionWebSteps extends AbstractWebSteps {
                 .getElement(elementName)
                 .shouldBe(Condition.visible)
                 .clear();
-    }
-    @Если("в выпадающем списке {string} выбрать {string}")
-    public void selectValueDropdown(String list, String value) {
-        SelenideElement element = pageManager
-                .getCurrentPage()
-                .getElement(list);
-        element
-                .shouldBe(Condition.visible)
-                .selectOptionContainingText(value);
-    }
-    @И("прикрепить файл {string}")
-    public void file (String filename){
-        File file = new File(String.format("src/test/resources/%s",filename));
-        String catalog =file.getAbsolutePath();
-        System.out.println(catalog);
-        $x("//input[@type='file']").sendKeys(catalog);
     }
 }
