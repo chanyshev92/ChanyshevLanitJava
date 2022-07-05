@@ -1,19 +1,37 @@
 package model;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 public class Calculator {
 
     public static String execute(String[] params) {
         String operator = params[0];
         double value1;
         double value2;
-        // todo: доработать код, чтобы все негативные тесты проходили успешно
-        value1 = Double.parseDouble(params[1]);
-        value2 = Double.parseDouble(params[2]);
-        double result = calculate(operator, value1, value2);
-        if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) {
-            throw new CalculatorException("Превышен порог значений");
+
+        if (Arrays.stream(params).anyMatch(Objects::isNull)) {
+            throw new CalculatorException("One of arguments is null!", new NullPointerException());
         }
-        return String.valueOf(result);
+
+        try {
+            value1 = Double.parseDouble(params[1]);
+            value2 = Double.parseDouble(params[2]);
+            if (value1 > Integer.MAX_VALUE
+                    || value1 < Integer.MIN_VALUE
+                    || value2 > Integer.MAX_VALUE
+                    || value2 < Integer.MIN_VALUE) {
+                throw new CalculatorException("Превышен порог значений",new RuntimeException());
+            }
+
+        } catch (NumberFormatException e) {
+            throw new CalculatorException(e);
+        }
+        double result = calculate(operator, value1, value2);
+        if (result > Integer.MAX_VALUE || result <Integer.MIN_VALUE) {
+            throw new CalculatorException("Превышен порог значений",new RuntimeException());
+        }
+        return String.format("%.3f",result);
     }
 
     private static double calculate(String operator, double a, double b) {
