@@ -1,0 +1,10 @@
+{
+  "id": "0",
+  "username": "jjxuqhuj",
+  "firstName": "vaiuktue",
+  "lastName": "sgqugxpo",
+  "email": "cuuetlc@ctz346.nr",
+  "password": "146jrm872sha",
+  "phone": "+70864657041",
+  "userStatus": "1"
+}
