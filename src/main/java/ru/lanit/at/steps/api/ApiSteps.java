@@ -31,7 +31,7 @@ public class ApiSteps {
     @И("добавить header")
     public void addHeaders(DataTable dataTable) {
         Map<String, String> headers = new HashMap<>();
-        dataTable.asLists().forEach(it -> headers.put(replaceVarsIfPresent(it.get(0)), replaceVarsIfPresent(it.get(1))));
+        dataTable.asLists().forEach(it -> headers.put(it.get(0), it.get(1)));
         apiRequest.setHeaders(headers);
     }
 
@@ -64,6 +64,7 @@ public class ApiSteps {
             LOG.info("Извлечены данные: {}={}", k, extractedValue);
         });
     }
+
 
     @И("сравнить значения")
     public void compareVars(DataTable table) {

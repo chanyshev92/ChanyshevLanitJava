@@ -1,5 +1,5 @@
 #language:ru
-@petstore
+@test
 
 Функционал: Тестирование сервиса PetStore
   - Создание нового юзера POST запросом с телом из json файла, значения которого заполняем сгенерированным значениями
@@ -14,7 +14,6 @@
         # R - русская буква,
         # D - цифра. Остальные символы игнорятся
         # Условна дана строка TEST_EEE_DDD_RRR - снегерится примерно такая - TEST_QRG_904_ЙЦУ
-
     * сгенерировать переменные
       | id         | 0                 |
       | username   | EEEEEEEE          |
@@ -27,8 +26,8 @@
 
     # Создаем юзера
     * создать запрос
-      | method | path  | body            |
-      | POST   | /user | createUser.json |
+     | method | path  | body            |
+     | POST   | /user | createUser.json |
     * добавить header
       | Content-Type | application/json |
     * отправить запрос
