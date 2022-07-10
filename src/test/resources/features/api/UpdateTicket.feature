@@ -32,9 +32,40 @@
   * отправить запрос
   * статус код 201
   * извлечь данные
-    | id | $.id |
-  * извлечь данные
-    | status1 | $.status |
+    | id               | $.id              |
+    | due_date1        | $.due_date        |
+    | assigned_to1     | $.assigned_to     |
+    | title1           | $.title           |
+    | created1         | $.created         |
+    | modified1        | $.modified        |
+    | submitter_email1 | $.submitter_email |
+    | status1          | $.status          |
+    | on_hold1         | $.on_hold         |
+    | description1     | $.description     |
+    | resolution1      | $.resolution      |
+    | priority1        | $.priority        |
+    | secret_key1      | $.secret_key      |
+    | queue1           | $.queue           |
+    | kbitem1          | $.kbitem          |
+    | merged_to1       | $.merged_to       |
+  #Даты создания, модификации неверны(старые), поэтому не должны совпадать
+  * сравнить значения
+    | {id1}               | != | {id}               |
+    | ${due_date}         | == | ${due_date1}       |
+    | ${assigned_to}      | == | ${assigned_to}     |
+    | ${title1}           | == | ${title}           |
+    | ${created}          | != | ${created1}        |
+    | ${modified}         | != | ${modified1}       |
+    | ${submitter_email1} | == | ${submitter_email} |
+    | ${status1}          | == | ${status}          |
+    | ${on_hold1}         | == | ${on_hold}         |
+    | ${description1}     | == | ${description}     |
+    | ${resolution1}      | == | ${resolution}      |
+    | ${priority1}        | == | ${priority}        |
+    | ${secret_key1}      | == | ${secret_key}      |
+    | ${queue1}           | == | ${queue}           |
+    | ${kbitem1}          | == | ${kbitem}          |
+    | ${merged_to1}       | == | ${merged_to}       |
 
   #Авторизация
   * создать запрос
@@ -63,6 +94,5 @@
     | Authorization | token ${token}   |
 
   * отправить запрос
-  * статус код 200
-  #* статус код 422
+  * статус код 422
 
