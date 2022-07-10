@@ -20,7 +20,7 @@ public class WebCheckWebSteps extends AbstractWebSteps {
      *
      * @param text текст
      */
-    @Когда("проверить что элемент {string} содержит текст:")
+    @Когда("проверить что элемент {string} содержит текст:{string}")
     public void textAppearOnThePage(String elementName, List<String> text) {
         SelenideElement element = pageManager
                 .getCurrentPage()
@@ -28,6 +28,20 @@ public class WebCheckWebSteps extends AbstractWebSteps {
         WebChecks.elementContainsText(element, text);
         LOGGER.info("элемент '{}' содержит текст '{}'", elementName, text);
     }
+    @Когда("проверить что какой-то элемент из {string} содержит текст:{string}")
+    public void textAppearOnTheListOfElements(String elementsName, String text) {
+        List<SelenideElement> elements = pageManager
+                .getCurrentPage()
+                .getElementsCollection(elementsName);
+
+        //elements.stream().forEach(element -> WebChecks.elementContainsText(element,text));
+        if(elements.stream().anyMatch(e-> WebChecks.elementTextContainsText(e,text))){
+            LOGGER.info("элемент '{}' содержит текст '{}'", elementsName, text);
+        } else{
+            LOGGER.info("элемент '{}' не содержит текст '{}'", elementsName, text);
+        }
+    }
+
 
 
     /**

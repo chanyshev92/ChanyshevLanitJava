@@ -101,6 +101,9 @@ public class WebChecks {
         }
     }
 
+    public static boolean elementTextContainsText(SelenideElement element, String text){
+        return element.getText().contains(text);
+    }
 
     /**
      * Проверяет, что на странице имеется текст

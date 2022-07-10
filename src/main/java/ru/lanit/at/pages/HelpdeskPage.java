@@ -4,6 +4,9 @@ import com.codeborne.selenide.SelenideElement;
 import ru.lanit.at.utils.web.annotations.Name;
 import ru.lanit.at.utils.web.pagecontext.WebPage;
 
+import java.util.List;
+
+import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 
 @Name(value = "Helpdesk")
@@ -54,6 +57,9 @@ public class HelpdeskPage extends WebPage {
     @Name("Attach file(s)")
     private SelenideElement file= $x ("//*[@id='ShowFileUpload']");
 
+    @Name("attachment")
+    private SelenideElement attachment =$x("//input[@name='attachment']");
+
     @Name("Update This Ticket")
     private SelenideElement sub= $x ("//button[text()='Update This Ticket']");
 
@@ -79,7 +85,13 @@ public class HelpdeskPage extends WebPage {
     private SelenideElement text = $x ("//*[@id='id_title']");
 
     @Name("Save Query Button")
-    private SelenideElement buttonSearch = $x ("//*[@aria-controls='collapseTwo']");
+    private SelenideElement buttonSearch = $x ("//input[@value='Save Query']");
+
+    @Name("Shared?")
+    private SelenideElement sharedCheckBox = $x ("//input[@name='shared']");
+
+    @Name("Saved Queries List")
+    private List<SelenideElement> savedList=$$x("//*[@class='dropdown-menu show']/a");
 
 }
 
